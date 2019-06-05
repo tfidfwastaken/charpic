@@ -25,7 +25,8 @@
     (luminosity->char lum-val)))
 
 (module+ main
-  (get-luminosity-list "somename" "/home/atharva/Pictures/profcrop.jpg"))
+  (luminosity-list->char-list
+   (get-luminosity-list "somename" "/home/atharva/Pictures/profcrop.jpg")))
 
 (module+ test
   (require rackunit)
