@@ -1,0 +1,10 @@
+* Formula for mapping ascii
+
+`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$
+(67 chars for 256 values)
+
+- attempt 1
+67/256 * brightness-val
+* scratch
+B88&%#ZuffffxQ*8&&888888%B%**##o*#oawYrfjxnuunrrrnnnnnxrjffftfjnvvczzcvvvzYYYUYXzvvvvzYYXXYUYUUJUYXzzzXXXYYzzzXXXzzcczzzzzzzzzccvvvczzzccczzzzczzcvnnnuuuuuvvvvnnnnxxxnuvczcccccvvvunnxxxnnnnuunnnnuuuvzzzcvvczzvvuuunnnnnnvuu
+

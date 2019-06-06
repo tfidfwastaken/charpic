@@ -3,7 +3,7 @@
 
 (define (get-luminosity-list name path)
   (define img-color-list
-    (image->color-list (bitmap/file path)))
+    (image->color-list (scale 0.1 (bitmap/file path))))
   (define luminosity-list
     (for/list ([color-value-list (in-list img-color-list)])
       (λ (r g b)
@@ -23,10 +23,21 @@
 (define (luminosity-list->char-list lum-list)
   (for/list ([lum-val (in-list lum-list)])
     (luminosity->char lum-val)))
+(provide luminosity-list->char-list)
+
+(define (char-display char-list line-width)
+  (for ([char (in-list char-list)]
+        [i (in-naturals 1)])
+    (for ([j (in-range 3)]) (display char))
+    (when (zero? (modulo i line-width))
+      (display #\newline))))
+(provide char-display)
 
 (module+ main
-  (luminosity-list->char-list
-   (get-luminosity-list "somename" "/home/atharva/Pictures/profcrop.jpg")))
+  (define char-list
+    (luminosity-list->char-list
+     (get-luminosity-list "somename" "/home/atharva/Pictures/profcrop.jpg")))
+  (char-display char-list 91))
 
 (module+ test
   (require rackunit)
