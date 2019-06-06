@@ -1,9 +1,14 @@
 #lang racket/base
 (require 2htdp/image)
 
-(define (get-luminosity-list name path)
+(define (get-luminosity-list #:path path #:width [width 96])
+  (define img (bitmap/file path))
+  (define scale-factor
+    (/ width (image-width img)))
+  (define scaled-image
+    (scale/xy scale-factor (/ scale-factor 3) img))
   (define img-color-list
-    (image->color-list (scale 0.1 (bitmap/file path))))
+    (image->color-list scaled-image))
   (define luminosity-list
     (for/list ([color-value-list (in-list img-color-list)])
       (λ (r g b)
@@ -25,10 +30,10 @@
     (luminosity->char lum-val)))
 (provide luminosity-list->char-list)
 
-(define (char-display char-list line-width)
+(define (char-display char-list [line-width 96])
   (for ([char (in-list char-list)]
         [i (in-naturals 1)])
-    (for ([j (in-range 3)]) (display char))
+    (display char)
     (when (zero? (modulo i line-width))
       (display #\newline))))
 (provide char-display)
@@ -36,14 +41,14 @@
 (module+ main
   (define char-list
     (luminosity-list->char-list
-     (get-luminosity-list "somename" "/home/atharva/Pictures/profcrop.jpg")))
-  (char-display char-list 91))
+     (get-luminosity-list #:path "/home/atharva/Pictures/test.JPG")))
+  (char-display char-list))
 
 (module+ test
   (require rackunit)
 
   (check-true (list? (get-luminosity-list
-                      "somename" "/home/atharva/Pictures/profcrop.jpg")))
+                       #:path "/home/atharva/Pictures/profcrop.jpg")))
 
   (test-case "checking the luminosity to character mapping"
     (check-equal? (luminosity->char 0) #\`)
