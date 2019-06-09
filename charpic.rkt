@@ -30,19 +30,18 @@
     (luminosity->char lum-val)))
 (provide luminosity-list->char-list)
 
+(require racket/sequence)
 (define (char-display char-list [line-width 96])
-  (for ([char (in-list char-list)]
-        [i (in-naturals 1)])
-    (display char)
-    (when (zero? (modulo i line-width))
-      (display #\newline))))
+  (for ([chars (in-slice line-width char-list)])
+    (for-each display chars)
+    (newline)))
 (provide char-display)
 
 (module+ main
   (define char-list
     (luminosity-list->char-list
-     (get-luminosity-list #:path "/home/atharva/Pictures/test.JPG")))
-  (char-display char-list))
+     (get-luminosity-list #:path "/home/atharva/Pictures/test2.JPG" #:width 361)))
+  (char-display char-list 361))
 
 (module+ test
   (require rackunit)
