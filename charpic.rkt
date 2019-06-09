@@ -40,14 +40,14 @@
 (module+ main
   (define char-list
     (luminosity-list->char-list
-     (get-luminosity-list #:path "/home/atharva/Pictures/test2.JPG" #:width 361)))
+     (get-luminosity-list #:path "/some/path" #:width 361)))
   (char-display char-list 361))
 
 (module+ test
   (require rackunit)
 
   (check-true (list? (get-luminosity-list
-                       #:path "/home/atharva/Pictures/profcrop.jpg")))
+                       #:path "/some/path")))
 
   (test-case "checking the luminosity to character mapping"
     (check-equal? (luminosity->char 0) #\`)
