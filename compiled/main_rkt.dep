@@ -1,1 +1,0 @@
-("7.3" racket ("5cd530fafd199322f4497ec44fa0f74d38bd30f9" . "dc6f599b0b880ccaa6b2b0e1e07998bacb6b7ac9") (collects #"charpic" #"charpic.rkt") (collects #"racket" #"base.rkt") (collects #"racket" #"runtime-config.rkt"))
