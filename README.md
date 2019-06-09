@@ -2,6 +2,7 @@
 *(pronounced like charming + harpic)*
 
 This program turns a bitmap image into ascii art on your terminal
+
 Works better with contrasty images.
 
 ## Usage
