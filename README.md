@@ -18,7 +18,7 @@ charpic [ <option> ... ] <path>
 
 ## Install
 
-1. [https://download.racket-lang.org/](Get Racket)
+1. [https://download.racket-lang.org](Get Racket)
 2. Get this repo into your preferred directory
 
 ```
