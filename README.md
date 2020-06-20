@@ -14,7 +14,25 @@ charpic [ <option> ... ] <path>
 
 ## Examples
 ![original](https://upload.wikimedia.org/wikipedia/en/5/51/Igor_-_Tyler%2C_the_Creator.jpg "aoty?")
-![after charpic](https://0x0.st/zu99.png "asciigor")
+![after charpic](igorcharpic.png "asciigor")
 
 ## Install
-*coming soon*
+
+1. [https://download.racket-lang.org/](Get Racket)
+2. Get this repo into your preferred directory
+
+```
+git clone https://github.com/tfidfwastaken/charpic.git
+```
+
+3. Create the executable within the cloned directory
+
+```
+raco exe -o charpic main.rkt
+```
+
+4. Put this line in your `.bashrc` if you want to access the program from anywhere:
+
+```
+export PATH="$PATH:./charpic"
+```
